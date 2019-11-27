@@ -1,0 +1,9 @@
+
+ngx-quiz nb-stepper .header {
+    .step, .connector { display: none!important; }
+    .step.selected { display: block!important; }
+  }
+
+  .horizontal .header .step {
+      display: none!important;
+  }

@@ -1,0 +1,38 @@
+<!-- <nb-card>
+  <nb-card-header>
+    Welcome
+  </nb-card-header>
+  <nb-card-body> -->
+    
+  <!-- </nb-card-body>
+</nb-card> -->
+<form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+  <div class="question-section" *ngFor="let question of welcomeQuestions; index as i">
+    <h6 class="font-weight-normal">
+      <span [innerHTML]="question.name"></span>
+    </h6>
+    <div class="text-left options">
+      <div class="option">
+        <div *ngIf="question.options == null">
+          <input type="text" status="success" fieldSize="medium" nbInput fullWidth placeholder="">
+        </div>
+        <div *ngIf="question.options != null">
+          <div *ngIf="question.inputType === 1">
+            <nb-radio-group formControllerName="option1">
+              <nb-radio
+                *ngFor="let option of question.options"
+                [value]="option.value">
+                {{ option.name }}
+              </nb-radio>
+            </nb-radio-group>
+          </div>
+          <div *ngIf="question.inputType === 2">
+            <div *ngFor="let option of question.options">
+              <nb-checkbox status="basic">{{ option.name }}</nb-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,50 @@
+<nb-card>
+  <nb-card-body>
+
+    <nb-tabset (changeTab)="onChangeTab($event)">
+      <nb-tab tabTitle="overall risk" 
+        badgeText="High"
+        badgeStatus="warning">
+      </nb-tab>
+      <nb-tab tabTitle="identify"
+        badgeText="Critical"
+        badgeStatus="danger">
+      </nb-tab>
+      <nb-tab tabTitle="protect"
+        badgeText="Medium"
+        badgeStatus="success">
+      </nb-tab>
+      <nb-tab tabTitle="detect"
+        badgeText="Low"
+        badgeStatus="primary">
+      </nb-tab>
+      <nb-tab tabTitle="respond"
+        badgeText="Info"
+        badgeStatus="info">
+      </nb-tab>
+      <nb-tab tabTitle="recover"
+        badgeText="critical"
+        badgeStatus="danger">
+      </nb-tab>
+    </nb-tabset>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <nb-card>
+          <nb-card-header>Risk Map</nb-card-header>
+          <nb-card-body>
+            <ngx-chart></ngx-chart>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-lg-6">
+        <nb-card>
+          <nb-card-header>Top Risk Areas</nb-card-header>
+          <nb-card-body>
+            <ngx-list></ngx-list>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,206 @@
+<nb-card>
+  <nb-card-body>
+    <nb-stepper #stepper orientation="horizontal" disableStepNavigation>
+      <nb-step [stepControl]="firstForm" label="welcome">
+        <ng-template #welcome>Welcome</ng-template>
+        <ngx-welcome></ngx-welcome>
+        <button class="prev-button" nbButton disabled nbStepperNext>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Identify</ng-template>
+        <ngx-identify></ngx-identify>
+        <button class="prev-button" nbButton nbStepperPrevious>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelThree">
+        <ng-template #labelThree>Protect</ng-template>
+        <ngx-protect></ngx-protect>
+        <button class="prev-button" nbButton nbStepperPrevious>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Detect</ng-template>
+        <ngx-detect></ngx-detect>
+        <button class="prev-button" nbButton nbStepperPrevious>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelFive">
+        <ng-template #labelFive>Respond</ng-template>
+        <ngx-respond></ngx-respond>
+        <button class="prev-button" nbButton nbStepperPrevious>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelSix">
+        <ng-template #labelSix>Recover</ng-template>
+        <ngx-recover></ngx-recover>
+        <button class="prev-button" nbButton nbStepperPrevious>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelSeven">
+        <ng-template #labelSeven>Complete</ng-template>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+          <button mat-button nbStepperPrevious>Back</button>
+          <button mat-button (click)="stepperReset()">Reset</button>
+          <!-- <button mat-button (click)="onSubmit()">Submit</button> -->
+        </div>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
+<!-- <nb-card>
+  <nb-card-body>
+    <nb-stepper #stepper>
+      <nb-step [stepControl]="firstForm" label="First step">
+        <ng-template #labelFive>Respond</ng-template>
+        <ngx-welcome></ngx-welcome>
+        <button class="prev-button" nbButton nbStepperPrevious>Back</button>
+        <button class="next-button" nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [stepControl]="secondForm" label="Second step">
+        <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+          <p class="lorem">
+            Pellentesque we gonna chung tortor.
+            Sizzle pizzle. Fizzle izzle dolor dapibus fo shizzle mah nizzle fo rizzle, mah home g-dizzle tempus tempor.
+            Maurizzle cool nibh owned turpizzle. My shizz fo shizzle tortor.
+          </p>
+          <div class="input-group">
+            <input nbInput type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
+                   [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+          </div>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="thirdForm" label="Third step">
+        <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
+          <p class="lorem">
+            Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
+          </p>
+          <div class="input-group">
+            <input nbInput type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
+                   [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+          </div>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton nbStepperNext>Confirm</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="thirdForm" [hidden]="true" label="Third step">
+        <div class="step-container">
+          <h3>Wizard completed!</h3>
+          <button nbButton (click)="stepper.reset()">Try again</button>
+        </div>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card> -->
+<!-- <nb-card>
+  <nb-card-header>
+    Sabre Systems
+  </nb-card-header>
+
+  <nb-card-body>
+    <div *ngIf="mode == 'quiz' && quiz">
+      <div *ngFor="let question of filteredQuestions; index as i">
+        <div *ngIf="question.isActive == true">
+          <h3 class="font-weight-normal">
+            <span [innerHTML]="question.name"></span>
+          </h3>
+          <div class="text-left options">
+            <div *ngFor="let option of question.options">
+              <div class="option">
+                <label class="font-weight-normal" [attr.for]="option.id">
+                  <div *ngIf="question.questionTypeId == 1">
+                    <input
+                      id="{{ option.id }}"
+                      type="checkbox"
+                      [(ngModel)]="option.selected"
+                      (change)="onSelect(question, option)"
+                    />
+                    {{ option.name }}
+                  </div>
+                  <div *ngIf="question.questionTypeId == 2">
+                    <input
+                      name="{{ question.id }}_radio"
+                      attr.name="{{ question.id }}_radio"
+                      id="{{ option.id }}"
+                      type="radio"
+                      [(ngModel)]="option.selected"
+                      (change)="onSelect(question, option)"
+                      value="{{ option.name }}"
+                      [checked]="(option.selected == option.name)"
+                    />
+                    {{ option.name }}
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row text-center" *ngIf="mode == 'review'">
+      <div
+        class="col-4 cursor-pointer"
+        *ngFor="let question of quiz.questions; let index = index"
+      >
+        <div
+          (click)="goTo(index)"
+          class="p-3 mb-2 {{
+            isAnswered(question) == 'Answered' ? 'bg-info' : 'bg-warning'
+          }}"
+        >
+          {{ index + 1 }}. {{ isAnswered(question) }}
+        </div>
+      </div>
+    </div>
+    <div class="result" *ngIf="mode == 'result'">
+      <h2>Result</h2>
+      <div *ngFor="let question of quiz.questions; let index = index">
+        <div *ngIf="question.isActive == true">
+          <div class="result-question">
+            <h5>{{ question.name }}</h5>
+            <div class="row">
+              <div class="col-6" *ngFor="let Option of question.options">
+                <div ngIf*="question.questionTypeId == 1">
+                  <input
+                    id="{{ Option.id }}"
+                    type="checkbox"
+                    disabled="disabled"
+                    [(ngModel)]="Option.selected"
+                  />
+                </div>
+                <div ngIf*="question.questionTypeId == 2">
+                  <input
+                    id="{{ Option.id }}"
+                    type="radio"
+                    disabled="disabled"
+                    [(ngModel)]="Option.selected"
+                  />
+                </div>
+                {{ Option.name }}
+              </div>
+            </div>
+            <div class="p-1 m-2 alert alert-success">
+              <div *ngFor="let item of showResults(question)">
+                {{ item.name }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <h4 class="alert alert-info text-center">You may close this window now.</h4>
+    </div>
+    <hr />
+    <div *ngIf="mode != 'result'">
+      <button class="btn btn-warning" (click)="mode = 'quiz'">Quiz</button>
+      <button class="btn btn-info" (click)="mode = 'review'">Review</button>
+      <button class="btn btn-primary" (click)="onSubmit()">Submit Quiz</button>
+    </div>   
+  </nb-card-body>
+</nb-card> -->
