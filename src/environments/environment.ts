@@ -10,4 +10,14 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: 'AIzaSyC1vXZ_aNXm0zTvz6dtzvqTCFxEItg0Gmc',
+    authDomain: 'sabreconnect-67c6a.firebaseapp.com',
+    databaseURL: 'https://sabreconnect-67c6a.firebaseio.com',
+    projectId: 'sabreconnect-67c6a',
+    storageBucket: 'sabreconnect-67c6a.appspot.com',
+    messagingSenderId: '101526157419',
+    appId: '1:101526157419:web:f3ad8bdcd21fb4a385192e',
+    measurementId: 'G-DLKQXHBRK6',
+  },
 };
