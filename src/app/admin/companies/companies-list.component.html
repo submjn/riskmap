@@ -1,0 +1,27 @@
+<div class="row">
+  <div *ngIf="loading$ | async">
+    Loading...
+  </div>
+  <div *ngIf="noResults$ | async">
+    No results
+  </div>
+  <div class="col-4" *ngFor="let company of companies$ | async">
+    <div class="card bg-light mb-3">
+      <div class="card-header">
+        {{ company.name }}
+        <span *ngIf="company.isActive" class="badge badge-success">Active</span>
+        <button
+          (click)="delete(company)"
+          type="button"
+          class="close float-right"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ company.location }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

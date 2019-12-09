@@ -1,4 +1,9 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import {
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
@@ -11,6 +16,15 @@ import {
   PlayerService,
   StateService,
 } from './utils';
+
+import { AngularFireModule } from '@angular/fire';
+import {
+  AngularFirestoreModule,
+  AngularFirestore,
+} from '@angular/fire/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
+
 import { UserData } from './data/users';
 import { CompaniesData } from './data/companies';
 import { UserActivityData } from './data/user-activity';
@@ -61,7 +75,6 @@ export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
-
     strategies: [
       NbDummyAuthStrategy.setup({
         name: 'email',
@@ -93,7 +106,8 @@ export const NB_CORE_PROVIDERS = [
   }).providers,
 
   {
-    provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
+    provide: NbRoleProvider,
+    useClass: NbSimpleRoleProvider,
   },
   AnalyticsService,
   LayoutService,
@@ -104,11 +118,18 @@ export const NB_CORE_PROVIDERS = [
 @NgModule({
   imports: [
     CommonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NbAuthModule,
+    AngularFireModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule,
   ],
   declarations: [],
+  providers: [AngularFirestore],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
@@ -118,9 +139,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return <ModuleWithProviders>{
       ngModule: CoreModule,
-      providers: [
-        ...NB_CORE_PROVIDERS,
-      ],
+      providers: [...NB_CORE_PROVIDERS],
     };
   }
 }

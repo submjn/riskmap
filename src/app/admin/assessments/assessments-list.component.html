@@ -1,0 +1,19 @@
+<div class="row">
+  <div *ngIf="loading$ | async">
+    Loading...
+  </div>
+  <div *ngIf="noResults$ | async">
+    No results
+  </div>
+  <div class="col-4" *ngFor="let assessment of assessments$ | async">
+    <div class="card bg-light mb-3">
+      <div class="card-header">{{ assessment.title }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ assessment.description }}</h5>
+        <button (click)="delete(assessment)" class="btn btn-danger">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

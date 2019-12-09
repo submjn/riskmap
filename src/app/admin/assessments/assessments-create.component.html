@@ -1,0 +1,70 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="row">
+    <!-- <div class="row"> -->
+      <div class="col-6">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="string"
+            class="form-control"
+            id="title"
+            formControlName="title"
+            [class.is-invalid]="isInvalid('title')"
+          />
+          <div class="invalid-feedback">
+            Please enter a Title.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="string"
+            class="form-control"
+            id="description"
+            formControlName="description"
+            [class.is-invalid]="isInvalid('description')"
+          />
+          <div class="invalid-feedback">
+            Please enter a Description.
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+            <label for="question">Question List</label>
+          <select
+            class="custom-select"
+            formControlName="question"
+            [class.is-invalid]="isInvalid('question')"
+          >
+            <option value="" selected>Choose Questions</option>
+            <option *ngFor="let question of questions" [ngValue]="question">{{
+              question
+            }}</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a Question.
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+    <div class="col-12">
+        <button
+        [disabled]="form.invalid"
+        type="submit"
+        class="btn btn-primary d-inline"
+      >
+        Add
+      </button>
+      <span class="ml-2">{{ status$ | async }}</span>
+    </div>
+
+    <!--  -->
+    <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="hasDriverLicense"
+              formControlName="hasDriverLicense">
+            <label class="form-check-label" for="hasDriverLicense">Active</label>
+        </div> -->
+    
+  </form>
+</div>
