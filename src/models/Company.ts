@@ -1,6 +1,9 @@
 export interface Company {
     id: string;
     name: string;
-    location: string;
+    risk: [];
+    progress: number;
+    lastUpdated: Date;
+    // location: string;
     isActive: boolean;
 }

@@ -2,7 +2,7 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const ADMIN_MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'SabreConnect',
+    title: 'Admin',
     group: true,
   },
   {

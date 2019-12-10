@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OptionsPageComponent } from './options-page.component';
 import { OptionsListComponent } from './options-list.component';
 import { OptionsFormComponent } from './options-create.component';
+import { NbCardModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { OptionsFormComponent } from './options-create.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NbCardModule,
   ],
 })
 export class OptionsModule { }

@@ -1,57 +1,55 @@
-<div class="container">
-  <form [formGroup]="form" (ngSubmit)="submit()" class="row">
-    <!-- <div class="row"> -->
-    <div class="col-6">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="string"
-          class="form-control"
-          id="name"
-          formControlName="name"
-          [class.is-invalid]="isInvalid('name')"
-        />
-        <div class="invalid-feedback">
-          Please enter a Name.
-        </div>
+<form [formGroup]="form" (ngSubmit)="submit()" class="row">
+  <!-- <div class="row"> -->
+  <div class="col-6">
+    <div class="form-group">
+      <label for="name">Company Name</label>
+      <input
+        type="string"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        [class.is-invalid]="isInvalid('name')"
+      />
+      <div class="invalid-feedback">
+        Please enter a Company Name.
       </div>
     </div>
-    <div class="col-6">
-      <div class="form-group">
-        <label for="location">Locations</label>
-        <select
-          class="custom-select"
-          formControlName="location"
-          [class.is-invalid]="isInvalid('location')"
-        >
-          <option value="" selected>Choose Locations</option>
-          <option *ngFor="let loc of locations" [ngValue]="loc">{{
-            loc
-          }}</option>
-        </select>
-        <div class="invalid-feedback">
-          Please select a Location.
-        </div>
-      </div>
-      <div class="form-group form-check">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="isActive"
-          formControlName="isActive"
-        />
-        <label class="form-check-label" for="isActive">Active</label>
-      </div>
-    </div>
-    <div class="col-12">
-      <button
-        [disabled]="form.invalid"
-        type="submit"
-        class="btn btn-primary d-inline"
+  </div>
+  <div class="col-6">
+     <div class="form-group">
+      <label for="risk">Company Risk</label>
+      <select
+        class="custom-select"
+        formControlName="risk"
+        [class.is-invalid]="isInvalid('risk')"
       >
-        Add
-      </button>
-      <span class="ml-2">{{ status$ | async }}</span>
+        <option value="" selected>Choose Company risk</option>
+        <option *ngFor="let risk of risks" [ngValue]="risk">{{
+          risk
+        }}</option>
+      </select>
+      <div class="invalid-feedback">
+        Please select a Risks.
+      </div>
     </div>
-  </form>
-</div>
+    <div class="form-group form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="isActive"
+        formControlName="isActive"
+      />
+      <label class="form-check-label" for="isActive">Active</label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button
+      [disabled]="form.invalid"
+      type="submit"
+      class="btn btn-primary d-inline"
+    >
+      Add
+    </button>
+    <span class="ml-2">{{ status$ | async }}</span>
+  </div>
+</form>

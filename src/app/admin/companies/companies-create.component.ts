@@ -16,10 +16,12 @@ export class CompaniesCreateComponent implements OnInit {
         isActive: new FormControl(true),
     });
 
-    locations = [
-        'Location 1',
-        'Location 2',
-        'Location 3',
+    risks = [
+        'Critical',
+        'High',
+        'Medium',
+        'Moderate',
+        'Low',
     ];
 
     status$: Observable < string > ;
