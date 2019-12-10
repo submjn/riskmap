@@ -16,14 +16,6 @@ export class CompaniesCreateComponent implements OnInit {
         isActive: new FormControl(true),
     });
 
-    risks = [
-        'Critical',
-        'High',
-        'Medium',
-        'Moderate',
-        'Low',
-    ];
-
     status$: Observable < string > ;
 
     constructor(
@@ -41,8 +33,7 @@ export class CompaniesCreateComponent implements OnInit {
 
     async submit() {
         this.form.disable();
-        await this.companies.create({ ...this.form.value,
-        });
+        await this.companies.create({ ...this.form.value});
         this.form.reset();
         this.form.enable();
     }

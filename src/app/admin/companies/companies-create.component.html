@@ -16,22 +16,19 @@
     </div>
   </div>
   <div class="col-6">
-     <div class="form-group">
-      <label for="risk">Company Risk</label>
-      <select
-        class="custom-select"
-        formControlName="risk"
-        [class.is-invalid]="isInvalid('risk')"
-      >
-        <option value="" selected>Choose Company risk</option>
-        <option *ngFor="let risk of risks" [ngValue]="risk">{{
-          risk
-        }}</option>
-      </select>
-      <div class="invalid-feedback">
-        Please select a Risks.
-      </div>
-    </div>
+      <div class="form-group">
+          <label for="location">Company Location</label>
+          <input
+            type="string"
+            class="form-control"
+            id="location"
+            formControlName="location"
+            [class.is-invalid]="isInvalid('location')"
+          />
+          <div class="invalid-feedback">
+            Please enter a Company Location.
+          </div>
+        </div>
     <div class="form-group form-check">
       <input
         type="checkbox"
