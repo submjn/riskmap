@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CompaniesService } from '../../../api/companies/companies.service';
+import { CompaniesService } from '../../../services/companies/companies.service';
 
 @Component({
   selector: 'ngx-companies-page',

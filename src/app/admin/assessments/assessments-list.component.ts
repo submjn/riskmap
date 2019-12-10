@@ -1,7 +1,7 @@
 import { Assessment } from '../../../models/Assessment';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AssessmentsService } from '../../../api/assessments/assessments.service';
+import { AssessmentsService } from '../../../services/assessments/assessments.service';
 
 @Component({
     selector: 'ngx-assessments-list',

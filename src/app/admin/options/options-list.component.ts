@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Option } from '../../../models/Option';
-import { OptionsService } from '../../../api/options/options.service';
+import { OptionsService } from '../../../services/options/options.service';
 
 @Component({
   selector: 'ngx-options-list',

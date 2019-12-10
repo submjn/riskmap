@@ -1,4 +1,4 @@
-import { AssessmentsService } from '../../../api/assessments/assessments.service';
+import { AssessmentsService } from '../../../services/assessments/assessments.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';

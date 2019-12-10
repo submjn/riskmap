@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OptionsService } from '../../../api/options/options.service';
+import { OptionsService } from '../../../services/options/options.service';
 import { Observable } from 'rxjs';
 
 @Component({

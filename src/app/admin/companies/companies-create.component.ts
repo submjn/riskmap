@@ -1,4 +1,4 @@
-import { CompaniesService } from '../../../api/companies/companies.service';
+import { CompaniesService } from '../../../services/companies/companies.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';

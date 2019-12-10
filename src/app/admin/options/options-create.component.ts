@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { OptionsService } from '../../../api/options/options.service';
+import { OptionsService } from '../../../services/options/options.service';
 
 @Component({
     selector: 'ngx-option-create',

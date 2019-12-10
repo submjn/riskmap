@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AssessmentsService } from '../../../api/assessments/assessments.service';
+import { AssessmentsService } from '../../../services/assessments/assessments.service';
 import { Observable } from 'rxjs';
 
 @Component({
