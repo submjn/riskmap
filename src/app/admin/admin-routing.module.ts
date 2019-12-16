@@ -5,7 +5,6 @@ import { AdminComponent } from './admin.component';
 import { AssessmentsPageComponent } from './assessments/assessments-page.component';
 import { CompaniesPageComponent } from './companies/companies-page.component';
 import { OptionsPageComponent } from './options/options-page.component';
-import { NotFoundComponent } from '../pages/miscellaneous/not-found/not-found.component';
 
 const routes: Routes = [
   {
