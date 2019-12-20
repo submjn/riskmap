@@ -25,7 +25,7 @@ export interface Quiz {
 //     inputType: number;
 //     category: string[];
 //     name: string;
-//     subText: string;
+//     helpText: string;
 //     required: boolean;
 //     options: Option[];
 //     answered: boolean;
