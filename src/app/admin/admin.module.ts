@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CompaniesModule } from './companies/companies.module';
 import { AssessmentsModule } from './assessments/assessments.module';
+import { QuestionsModule } from './questions/questions.module';
 import { OptionsModule } from './options/options.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NbMenuModule,
     AssessmentsModule,
     CompaniesModule,
+    QuestionsModule,
     OptionsModule,
   ],
   declarations: [
