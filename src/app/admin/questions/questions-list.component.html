@@ -1,0 +1,47 @@
+<div>
+  <div *ngIf="loading$ | async">
+    Loading...
+  </div>
+  <div *ngIf="noResults$ | async">
+    No results
+  </div>
+  <nb-list class="question-list">
+    <nb-list-item
+      class="question-list-item"
+      *ngFor="let question of questions$ | async"
+    >
+      <div class="row">
+        <div class="col-9">
+          <nb-badge
+            class="category-badge"
+            position="top left"
+            status="success"
+            [text]="question.section"
+          ></nb-badge>
+          <h5 class="question-title">
+            {{ question.questionText }}
+            <nb-icon
+              [nbTooltip]="question.helpText"
+              icon="question-mark-circle-outline"
+            ></nb-icon>
+          </h5>
+          <h6>
+            Categories:
+          </h6>
+          <button
+            *ngFor="let cat of question.category"
+            class="btn btn-info btn-category"
+          >
+            {{ cat }}
+          </button>
+        </div>
+        <div class="col-3">
+          <!-- <button (click)="delete(question)" class="btn btn-danger">
+            Delete
+          </button> -->
+          <ngx-confirm-dialog [question]="question"></ngx-confirm-dialog>
+        </div>
+      </div>
+    </nb-list-item>
+  </nb-list>
+</div>

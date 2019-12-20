@@ -37,7 +37,7 @@ export interface QuestionStateModel {
     inputType: number;
     category: string[];
     name: string;
-    subText: string;
+    helpText: string;
     required: boolean;
     options: OptionStateModel[];
     answered: boolean;
@@ -86,7 +86,7 @@ export interface QuizStateModel {
         inputType: 1,
         category: [],
         name: '',
-        subText: '',
+        helpText: '',
         required: true,
         options: [],
         answered: false,

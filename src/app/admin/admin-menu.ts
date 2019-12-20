@@ -7,19 +7,25 @@ export const ADMIN_MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Companies',
-    icon: 'home-outline',
+    icon: 'people-outline',
     link: '/admin/companies',
     home: true,
   },
   {
     title: 'Assessments',
-    icon: 'home-outline',
+    icon: 'grid-outline',
     link: '/admin/assessments',
     home: true,
   },
   {
+    title: 'Questions',
+    icon: 'question-mark-circle-outline',
+    link: '/admin/questions',
+    home: true,
+  },
+  {
     title: 'Options',
-    icon: 'home-outline',
+    icon: 'options-outline',
     link: '/admin/options',
     home: true,
   },
