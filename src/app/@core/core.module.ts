@@ -18,10 +18,13 @@ import {
 } from './utils';
 
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth } from '@angular/fire/auth';
 import {
   AngularFirestoreModule,
   AngularFirestore,
 } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../../environments/environment';
 
@@ -121,15 +124,17 @@ export const NB_CORE_PROVIDERS = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
+    AngularFireStorageModule,
   ],
   exports: [
     NbAuthModule,
     AngularFireModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
   ],
   declarations: [],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, AngularFireAuth],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
