@@ -14,9 +14,17 @@ export class CompaniesCreateComponent implements OnInit {
         name: new FormControl('', Validators.required),
         location: new FormControl('', Validators.required),
         isActive: new FormControl(true),
+        noOfEmployees: new FormControl(''),
     });
 
     status$: Observable < string > ;
+
+    empCountList = [
+        '1 - 100',
+        '101 - 500',
+        '501 - 1000',
+        '1000+',
+    ];
 
     constructor(
         private companies: CompaniesService,

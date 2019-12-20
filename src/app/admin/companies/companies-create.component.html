@@ -16,19 +16,19 @@
     </div>
   </div>
   <div class="col-6">
-      <div class="form-group">
-          <label for="location">Company Location</label>
-          <input
-            type="string"
-            class="form-control"
-            id="location"
-            formControlName="location"
-            [class.is-invalid]="isInvalid('location')"
-          />
-          <div class="invalid-feedback">
-            Please enter a Company Location.
-          </div>
-        </div>
+    <div class="form-group">
+      <label for="location">Company Location</label>
+      <input
+        type="string"
+        class="form-control"
+        id="location"
+        formControlName="location"
+        [class.is-invalid]="isInvalid('location')"
+      />
+      <div class="invalid-feedback">
+        Please enter a Company Location.
+      </div>
+    </div>
     <div class="form-group form-check">
       <input
         type="checkbox"
@@ -37,6 +37,22 @@
         formControlName="isActive"
       />
       <label class="form-check-label" for="isActive">Active</label>
+    </div>
+
+    <div class="form-group">
+      <label for="empCount">Please select the number of employees</label>
+      <nb-select
+        id="empCount"
+        placeholder="Select No of employees"
+        formControlName="noOfEmployees"
+      >
+        <nb-option *ngFor="let empCount of empCountList" [value]="empCount">{{
+          empCount
+        }}</nb-option>
+      </nb-select>
+      <div class="invalid-feedback">
+        Please select a No of employees.
+      </div>
     </div>
   </div>
   <div class="col-12">
