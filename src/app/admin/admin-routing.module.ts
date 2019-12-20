@@ -5,6 +5,7 @@ import { AdminComponent } from './admin.component';
 import { AssessmentsPageComponent } from './assessments/assessments-page.component';
 import { CompaniesPageComponent } from './companies/companies-page.component';
 import { OptionsPageComponent } from './options/options-page.component';
+import { QuestionsPageComponent } from './questions/questions-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'companies',
         component: CompaniesPageComponent,
+      },
+      {
+        path: 'questions',
+        component: QuestionsPageComponent,
       },
       {
         path: 'options',
