@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-header>
+    Assessments
+  </nb-card-header>
+
+  <nb-card-body>
+    <p>
+      <span class="font-weight-bold">Total:</span> {{ total$ | async }} <br />
+    </p>
+    <ngx-questions-create></ngx-questions-create>
+    <hr />
+    <ngx-questions-list></ngx-questions-list>
+  </nb-card-body>
+</nb-card>

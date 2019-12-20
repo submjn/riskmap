@@ -1,0 +1,106 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-9">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="questionText">Question Text</label>
+            <input
+              type="string"
+              class="form-control"
+              id="questionText"
+              formControlName="questionText"
+              [class.is-invalid]="isInvalid('questionText')"
+            />
+            <div class="invalid-feedback">
+              Please enter a Question Text.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="helpText">Help Text</label>
+            <input
+              type="string"
+              class="form-control"
+              id="helpText"
+              formControlName="helpText"
+              [class.is-invalid]="isInvalid('helpText')"
+            />
+            <div class="invalid-feedback">
+              Please enter a Question helpText.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 form-group">
+          <!-- <label for="section">Section List</label><br /> -->
+          <nb-select
+            placeholder="Select Section"
+            formControlName="section"
+            [class.is-invalid]="isInvalid('section')"
+          >
+            <nb-option *ngFor="let section of sections" [value]="section">{{
+              section
+            }}</nb-option>
+          </nb-select>
+          <div class="invalid-feedback">
+            Please select a section.
+          </div>
+        </div>
+        <div class="col-4 form-group">
+          <!-- <label for="category">Category List</label><br /> -->
+          <nb-select
+            formControlName="category"
+            multiple placeholder="Choose Categories">
+            <nb-option *ngFor="let category of categories" [value]="category">{{
+              category
+            }}</nb-option>
+          </nb-select>
+          <div class="invalid-feedback">
+            Please select a category.
+          </div>
+        </div>
+        <div class="col-4 form-group">
+          <!-- <label for="option">Option List</label> <br /> -->
+          <nb-select
+          placeholder="Select Option"
+            formControlName="option"
+            [class.is-invalid]="isInvalid('option')"
+          >
+            <nb-option *ngFor="let option of options" [value]="option">{{
+              option
+            }}</nb-option>
+          </nb-select>
+          <div class="invalid-feedback">
+            Please select a Option.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <p>
+        <button [disabled]="form.invalid" class="btn btn-primary d-inline">
+          Add Option
+        </button>
+      </p>
+      <p>
+        <button
+          [disabled]="form.invalid"
+          type="submit"
+          class="btn btn-primary d-inline"
+        >
+          Add Question
+        </button>
+        <span class="ml-2">{{ status$ | async }}</span>
+      </p>
+    </div>
+  </div>
+
+  <!--  -->
+  <!-- <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="hasDriverLicense"
+            formControlName="hasDriverLicense">
+          <label class="form-check-label" for="hasDriverLicense">Active</label>
+      </div> -->
+</form>
