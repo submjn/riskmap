@@ -1,0 +1,75 @@
+<h1 id="title" class="title">Login</h1>
+<p class="sub-title">Hello! Log in with your email.</p>
+
+<form (ngSubmit)="login(userName, userPassword)" #form="ngForm" aria-labelledby="title">
+  <div class="form-control-group">
+    <label class="label" for="input-email">Email Address:</label>
+    <input
+      #userName
+      nbInput
+      fullWidth
+      name="email"
+      id="input-email"
+      pattern=".+@.+\..+"
+      placeholder="Email address"
+      fieldSize="large"
+      autofocus
+      required
+    />
+  </div>
+
+  <div class="form-control-group">
+    <span class="label-with-link">
+      <label class="label" for="input-password">Password:</label>
+    </span>
+    <input
+      #userPassword
+      nbInput
+      fullWidth
+      name="password"
+      type="password"
+      id="input-password"
+      placeholder="Password"
+      fieldSize="large"
+      required
+    />
+  </div>
+
+  <button nbButton fullWidth status="primary" size="large">
+    Log In
+  </button>
+</form>
+
+<section class="another-action" aria-label="Register">
+  <p>
+    <a class="text-link" routerLink="../request-password">Forgot Password?</a>
+  </p>
+
+  <p>
+    Don't have an account?
+    <a class="text-link" routerLink="../register">Register</a>
+  </p>
+</section>
+
+<section
+  *ngIf="socialLinks && socialLinks.length > 0"
+  class="links"
+  aria-label="Social sign in"
+>
+  or enter with:
+  <div class="socials">
+    <ng-container *ngFor="let socialLink of socialLinks">
+      <button
+        type="button"
+        class="btn googleBtn"
+        (click)="socialAuth(socialLink.title)"
+      >
+        <nb-icon
+          *ngIf="socialLink.icon; else title"
+          [icon]="socialLink.icon"
+        ></nb-icon>
+        <ng-template #title>{{ socialLink.title }}</ng-template>
+      </button>
+    </ng-container>
+  </div>
+</section>
