@@ -15,6 +15,7 @@ export class CompaniesCreateComponent implements OnInit {
         location: new FormControl('', Validators.required),
         isActive: new FormControl(true),
         noOfEmployees: new FormControl(''),
+        industryType: new FormControl(''),
     });
 
     status$: Observable < string > ;
@@ -24,6 +25,22 @@ export class CompaniesCreateComponent implements OnInit {
         '101 - 500',
         '501 - 1000',
         '1000+',
+    ];
+
+    industryList = [
+        'Business Services',
+        'Education',
+        'Energy & Utilities',
+        'Financial Services',
+        'Government',
+        'Healthcare & ',
+        'Insurance',
+        'Legal',
+        'Manufacturing',
+        'Not for Profit',
+        'Retail & Wholesale',
+        'Technology',
+        'Other',
     ];
 
     constructor(

@@ -1,28 +1,34 @@
-<div class="row">
+<div>
   <div *ngIf="loading$ | async">
     Loading...
   </div>
   <div *ngIf="noResults$ | async">
     No results
   </div>
-  <div class="col-4" *ngFor="let company of companies$ | async">
-    <div class="card bg-light mb-3">
-      <div class="card-header">
-        {{ company.name }}
-        <span *ngIf="company.isActive" class="badge badge-success">Active</span>
-        <button
-          (click)="delete(company)"
-          type="button"
-          class="close float-right"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <nb-list class="company-list">
+    <nb-list-item
+      class="company-list-item"
+      *ngFor="let company of companies$ | async"
+    >
+      <div class="row">
+        <div class="col-9">
+          <nb-badge
+            position="top left"
+            status="success"
+            *ngIf="company.isActive"
+            class="category-badge"
+            text="Active"
+          ></nb-badge>
+          <h5 class="company-title">
+            {{ company.name }} | {{ company.location }}
+          </h5>
+          <h6>{{ company.industryType }} Company</h6>
+          <p>{{ company.noOfEmployees }} Employees</p>
+        </div>
+        <div class="col-3">
+          <ngx-confirm-dialog [company]="company"></ngx-confirm-dialog>
+        </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ company.location }}</h5>
-        <h6>No of Employees: {{ company.noOfEmployees }}</h6>
-      </div>
-    </div>
-  </div>
+    </nb-list-item>
+  </nb-list>
 </div>
